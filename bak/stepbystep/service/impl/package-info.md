@@ -1,0 +1,1 @@
+# 这里设计成 interface-interfaceImpl模式
