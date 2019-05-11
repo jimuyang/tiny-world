@@ -17,10 +17,10 @@ public class AutowiredCapableBeanFactory extends AbstractBeanFactory {
 //    @Override
 //    protected Object doCreateBean(BeanDefinition beanDefinition) throws Exception{
 //
-//        Object bean = this.createBeanInstance(beanDefinition);
-//        beanDefinition.setBean(bean);
-//        this.applyBeanProperties(bean, beanDefinition);
-//        return bean;
+//        Object beans = this.createBeanInstance(beanDefinition);
+//        beanDefinition.setBean(beans);
+//        this.applyBeanProperties(beans, beanDefinition);
+//        return beans;
 //    }
 //
 //

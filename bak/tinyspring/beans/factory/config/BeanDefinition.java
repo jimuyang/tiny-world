@@ -8,7 +8,7 @@ import org.springframework.lang.Nullable;
  * User: muyi
  * Date: 2018/3/30
  * Description:
- *      A BeanDefinition describes a bean instance,
+ *      A BeanDefinition describes a beans instance,
  *      which has property values, constructor argument values, and further information
  *      supplied by concrete implementations.
  *

@@ -13,5 +13,5 @@
         <property name="helloService" ref="helloService"/>
     </bean>
 
-    <!--    <bean id="beanInitializeLogger" class="com.muyi.summer.stepbystep.BeanInitializeLogger"/>-->
+    <!--    <beans id="beanInitializeLogger" class="com.muyi.summer.stepbystep.BeanInitializeLogger"/>-->
 </beans>

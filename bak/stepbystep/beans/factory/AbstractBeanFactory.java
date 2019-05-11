@@ -35,7 +35,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
     public Object getBean(String beanName) throws Exception {
         BeanDefinition beanDefinition = this.beanDefinitionMap.get(beanName);
         if (beanDefinition == null) {
-            throw new IllegalArgumentException("No bean named " + beanName + " is defined");
+            throw new IllegalArgumentException("No beans named " + beanName + " is defined");
         }
         Object bean = beanDefinition.getBean();
         if (bean == null) {
@@ -45,7 +45,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
         return bean;
     }
 
-    // initialize bean
+    // initialize beans
     protected void initializeBean(String beanName, Object bean) throws Exception {
         for (BeanPostProcessor beanPostProcessor : this.beanPostProcessors) {
             bean = beanPostProcessor.postProcessBeforeInitialization(bean, beanName);
@@ -66,8 +66,8 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 
     // 注册bean的定义
     public void registerBeanDefinition(String name, BeanDefinition beanDefinition) throws Exception {
-//        Object bean = doCreateBean(beanDefinition);
-//        beanDefinition.setBean(bean);
+//        Object beans = doCreateBean(beanDefinition);
+//        beanDefinition.setBean(beans);
         this.beanDefinitionMap.put(name, beanDefinition);
         this.beanDefinitionNames.add(name);
     }

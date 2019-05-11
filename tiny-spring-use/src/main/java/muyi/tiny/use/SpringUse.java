@@ -1,7 +1,9 @@
-package muyi.tiny.spring.use;
+package muyi.tiny.use;
 
 import muyi.tiny.service.HelloService;
 import muyi.tiny.service.OutputService;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
