@@ -1,57 +1,54 @@
 package muyi.tiny.spring.beans;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author: Yang Fan
- * @date: 2019-05-10
+ * @date: 2019-05-12
  * @desc:
- * @see org.springframework.beans.factory.config.BeanDefinition
- * @see org.springframework.beans.factory.support.AbstractBeanDefinition
  */
-public class BeanDefinition {
+public interface BeanDefinition {
+
+
+
 
     /**
-     * bean的类型
+     * parent definition
      */
-    private final Class clazz;
+    void setParentName(String parentName);
+
+    String getParentName();
 
     /**
-     * bean的类型名称
+     * bean class
      */
-    private final String clazzName;
+    void setBeanClassName(String beanClassName);
+
+    String getBeanClassName();
 
     /**
-     * bean的属性
+     * bean scope: SINGLETON/PROTOTYPE
      */
-    private final List<BeanProperty> properties;
+    void setScope(String scope);
 
-    public BeanDefinition(String clazzName) {
-        this.clazzName = clazzName;
-        try {
-            this.clazz = Class.forName(clazzName);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException("cannot find bean class: " + clazzName);
-        }
-        this.properties = new ArrayList<>();
-    }
+    String getScope();
 
-    public void addProperty(BeanProperty property) {
-        this.properties.add(property);
-    }
+    /**
+     * 懒加载
+     */
+    void setLazyInit(boolean lazyInit);
+
+    boolean isLazyInit();
+
+    /**
+     * 依赖的bean
+     * The bean factory will guarantee that these beans get initialized first.
+     */
+    void setDependsOn(String... dependBeans);
+
+    String[] getDependsOn();
 
 
-    public Class getClazz() {
-        return clazz;
-    }
+    void setDescription(String description);
 
-    public String getClazzName() {
-        return clazzName;
-    }
+    String getDescription();
 
-    public List<BeanProperty> getProperties() {
-        return properties;
-    }
 }
-
