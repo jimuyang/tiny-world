@@ -1,13 +1,14 @@
 package muyi.tiny.spring.beans;
 
 
+import org.springframework.beans.factory.config.ConstructorArgumentValues;
+
 /**
  * @author: Yang Fan
  * @date: 2019-05-12
  * @desc:
  */
 public abstract class AbstractBeanDefinition implements BeanDefinition {
-
 
     private volatile Object beanClass;
 
@@ -17,19 +18,33 @@ public abstract class AbstractBeanDefinition implements BeanDefinition {
 
     private String[] dependsOn;
 
+    private ConstructorArgumentValues constructorArgumentValues;
+
     private String initMethodName;
 
     private String destroyMethodName;
 
     private String description;
 
-
-    public Object getBeanClass() {
-        return beanClass;
+    /**
+     * Specify the bean class name of this bean definition.
+     */
+    @Override
+    public void setBeanClassName(String beanClassName) {
+        this.beanClass = beanClassName;
     }
 
-    public void setBeanClass(Object beanClass) {
-        this.beanClass = beanClass;
+    /**
+     * Return the current bean class name of this bean definition.
+     */
+    @Override
+    public String getBeanClassName() {
+        Object beanClassObject = this.beanClass;
+        if (beanClassObject instanceof Class) {
+            return ((Class<?>) beanClassObject).getName();
+        } else {
+            return (String) beanClassObject;
+        }
     }
 
     @Override

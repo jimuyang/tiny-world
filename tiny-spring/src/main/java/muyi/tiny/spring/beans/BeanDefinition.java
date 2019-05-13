@@ -7,9 +7,6 @@ package muyi.tiny.spring.beans;
  */
 public interface BeanDefinition {
 
-
-
-
     /**
      * parent definition
      */
