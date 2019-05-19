@@ -1,11 +1,18 @@
 package muyi.tiny.spring.beans;
 
+import muyi.tiny.spring.beans.factory.ConstructorArgumentValues;
+
 /**
  * @author: Yang Fan
  * @date: 2019-05-12
  * @desc:
  */
 public interface BeanDefinition {
+
+    String SCOPE_SINGLETON = "singleton";
+
+    String SCOPE_PROTOTYPE = "prototype";
+
 
     /**
      * parent definition
@@ -47,5 +54,11 @@ public interface BeanDefinition {
     void setDescription(String description);
 
     String getDescription();
+
+    ConstructorArgumentValues getConstructorArgumentValues();
+
+    MutablePropertyValues getPropertyValues();
+
+
 
 }
