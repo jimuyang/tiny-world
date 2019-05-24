@@ -19,7 +19,6 @@ import java.util.Set;
 public class PlainNIOServer {
     static final ByteBuffer HI = ByteBuffer.wrap("Hi! ".getBytes());
 
-
     public static void main(String[] args) throws Exception {
         PlainNIOServer server = new PlainNIOServer();
         server.server(8080);
