@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pylon="http://ele.me/schema/pylon"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://ele.me/schema/pylon http://ele.me/schema/pylon/spring-pylon.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <pylon:server protocol="json" group="stable" port="8080" threadPoolSize="10" bufferQueueSize="10">
+        <pylon:service class="me.ele.sample.api.EchoService" ref="echoService"/>
+    </pylon:server>
+
+    <bean id="echoService" class="me.ele.sample.impl.EchoServiceImpl"/>
+</beans>
